@@ -29,7 +29,7 @@ Michael Blum [tweeted](https://twitter.com/mblum_g/status/1475940763716444161?s=
 
 Given my [recent interest in machine learning](https://oliviergimenez.github.io/blog/learning-machine-learning/), this challenge peaked my interest. Although `Python` is the machine learning *lingua franca*, it is possible to [train a convolutional neural network (CNN) in `R`](https://github.com/oliviergimenez/computo-deeplearning-occupany-lynx) and perform (binary) image classification.
 
-Here, I will use an [`R` interface to `Keras`](https://keras.rstudio.com/) that allows training neural networks. 
+Here, I will use an [`R` interface to `Keras`](https://keras.rstudio.com/) that allows training neural networks. The other thing is that the [dataset shared for the challenge](https://stoic2021.grand-challenge.org/stoic-db/) is big, like 280Go big. It took me a day to download it. For the sake of illustration, I will use a similar but much lighter dataset from a [Kaggle](https://en.wikipedia.org/wiki/Kaggle) repository <https://www.kaggle.com/plameneduardo/sarscov2-ctscan-dataset>. 
 
 First things first, load the packages we will need.
 ```{r}
@@ -37,7 +37,6 @@ library(tidyverse)
 theme_set(theme_light())
 library(keras)
 ```
-
 
 # Read in and process data
 
@@ -173,11 +172,9 @@ table(Prediction = predictedclasses,
       Actual = test_target)
 ```
 
-Pretty cool. Only a few patients are misclassified.
-
-Save model for further use. 
+Pretty cool. Only a few patients are misclassified. Let's save our model for further use. 
 ```{r eval = FALSE}
 save_model_tf(model, "model/covidmodel") # save the model
 ```
 
-We are happy with the results. In general however, we need to find ways to improve the performances. A few tips [here](https://machinelearningmastery.com/improve-deep-learning-performance/) with examples implemented in `Keras` with `R` [there](https://keras.rstudio.com/articles/examples/index.html).
+I'm happy with the results. In general however, we need to find ways to improve the performances. A few tips [here](https://machinelearningmastery.com/improve-deep-learning-performance/) with examples implemented in `Keras` with `R` [there](https://keras.rstudio.com/articles/examples/index.html).
