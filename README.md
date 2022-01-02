@@ -1,3 +1,3 @@
 # Binary image classification using Keras in R
 
-Code and data. See <>.
+See <https://oliviergimenez.github.io/bin-image-classif/>.
